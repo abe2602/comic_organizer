@@ -1,0 +1,3 @@
+enum BookStatus {
+  owned, notOwned
+}
