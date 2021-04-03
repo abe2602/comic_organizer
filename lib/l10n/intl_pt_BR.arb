@@ -1,3 +1,20 @@
 {
-  "appName": ""
+  "appName": "",
+  "genericErrorMessage": "Erro genérico",
+  "tryAgainButtonLabel": "Tente Novamente",
+  "noInternetMessage" : "Parece que você está sem internet! , \n Tente conectar-se em alguma rede! ;)",
+  "emptyFieldError": "Campo Vazio",
+  "invalidFieldError": "Formato Invalido",
+  "nameLabel": "Nome da Coleção",
+  "collectionSizeLabel": "Tamanho da Coleção",
+  "addedWithSuccessTitle": "Sucesso",
+  "addedWithSuccessText": "Coleção adicionada com sucess",
+  "addedWithSuccessButtonText": "Ok!",
+  "comicCollectionTitle": "Coleção de gibis",
+  "comicAlreadyAddedTitle": "Coleção já Cadastrada",
+  "comicAlreadyAddedText": "Uma coleção com esse nome já foi adicionada",
+  "comicAlreadyAddedButtonText": "Ok!",
+  "addNewCollectionButtonText": "Salvar",
+  "imageFromLibraryText": "Imagem da Galeria",
+  "imageFromCameraText": "Imagem da Camera"
 }

@@ -20,5 +20,5 @@ class GetBooksListParamsUC {
     @required this.id,
   }) : assert(id != null);
 
-  final int id;
+  final String id;
 }

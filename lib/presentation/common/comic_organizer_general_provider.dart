@@ -1,8 +1,11 @@
 import 'package:comix_organizer/data/cache/collection_cds.dart';
 import 'package:comix_organizer/data/repository/collection_repository.dart';
 import 'package:domain/data_repository/collection_data_repository.dart';
+import 'package:domain/use_case/add_book_list.dart';
+import 'package:domain/use_case/add_collection_uc.dart';
 import 'package:domain/use_case/get_collection_list_uc.dart';
 import 'package:domain/use_case/get_books_list.dart';
+import 'package:domain/use_case/validate_empty_text_uc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -60,6 +63,19 @@ class ComicOrganizerGeneralProvider extends StatelessWidget {
       update: (context, collectionRepository, _) => GetBooksListUC(
         collectionRepository: collectionRepository,
       ),
+    ),
+    ProxyProvider<CollectionDataRepository, AddCollectionUC>(
+      update: (context, collectionRepository, _) => AddCollectionUC(
+        collectionRepository: collectionRepository,
+      ),
+    ),
+    ProxyProvider<CollectionDataRepository, AddBookListUC>(
+      update: (context, collectionRepository, _) => AddBookListUC(
+        collectionRepository: collectionRepository,
+      ),
+    ),
+    Provider<ValidateEmptyTextUC>(
+      create: (_) => ValidateEmptyTextUC(),
     ),
   ];
 }

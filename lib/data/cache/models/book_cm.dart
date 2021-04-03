@@ -11,5 +11,5 @@ class BookCM {
   })  : assert(status != null);
 
   @HiveField(0)
-  final BookStatus status;
+  final int status;
 }

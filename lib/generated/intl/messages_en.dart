@@ -21,6 +21,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "appName" : MessageLookupByLibrary.simpleMessage("")
+    "addNewCollectionButtonText" : MessageLookupByLibrary.simpleMessage("Save"),
+    "addNewCollectionTitle" : MessageLookupByLibrary.simpleMessage("Add a new Collection"),
+    "addedWithSuccessButtonText" : MessageLookupByLibrary.simpleMessage("Ok!"),
+    "addedWithSuccessText" : MessageLookupByLibrary.simpleMessage("Collection added with success"),
+    "addedWithSuccessTitle" : MessageLookupByLibrary.simpleMessage("Success"),
+    "appName" : MessageLookupByLibrary.simpleMessage(""),
+    "collectionSizeLabel" : MessageLookupByLibrary.simpleMessage("Collection Size"),
+    "comicAlreadyAddedButtonText" : MessageLookupByLibrary.simpleMessage("Ok!"),
+    "comicAlreadyAddedText" : MessageLookupByLibrary.simpleMessage("Collection with this name already added"),
+    "comicAlreadyAddedTitle" : MessageLookupByLibrary.simpleMessage("Collection already added"),
+    "comicCollectionTitle" : MessageLookupByLibrary.simpleMessage("Comic Collection"),
+    "emptyFieldError" : MessageLookupByLibrary.simpleMessage("Empty Field"),
+    "genericErrorMessage" : MessageLookupByLibrary.simpleMessage("Generic Error"),
+    "imageFromCameraText" : MessageLookupByLibrary.simpleMessage("Image from Camera"),
+    "imageFromLibraryText" : MessageLookupByLibrary.simpleMessage("Image from Galery"),
+    "invalidFieldError" : MessageLookupByLibrary.simpleMessage("Invalid Field"),
+    "nameLabel" : MessageLookupByLibrary.simpleMessage("Collection Name"),
+    "noInternetMessage" : MessageLookupByLibrary.simpleMessage("Looks like there\'s no internet , \n Try to connect into internet ;)"),
+    "tryAgainButtonLabel" : MessageLookupByLibrary.simpleMessage("Try Again")
   };
 }

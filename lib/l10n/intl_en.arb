@@ -1,3 +1,21 @@
 {
-  "appName": ""
+  "appName": "",
+  "genericErrorMessage": "Generic Error",
+  "tryAgainButtonLabel": "Try Again",
+  "noInternetMessage" : "Looks like there's no internet , \n Try to connect into internet ;)",
+  "emptyFieldError": "Empty Field",
+  "invalidFieldError": "Invalid Field",
+  "nameLabel": "Collection Name",
+  "addNewCollectionTitle": "Add a new Collection",
+  "collectionSizeLabel": "Collection Size",
+  "addedWithSuccessTitle": "Success",
+  "addedWithSuccessText": "Collection added with success",
+  "addedWithSuccessButtonText": "Ok!",
+  "comicCollectionTitle": "Comic Collection",
+  "comicAlreadyAddedTitle": "Collection already added",
+  "comicAlreadyAddedText": "Collection with this name already added",
+  "comicAlreadyAddedButtonText": "Ok!",
+  "addNewCollectionButtonText": "Save",
+  "imageFromLibraryText": "Image from Galery",
+  "imageFromCameraText": "Image from Camera"
 }

@@ -4,5 +4,10 @@ import 'package:domain/model/collection.dart';
 abstract class CollectionDataRepository {
   Future<List<Collection>> getCollectionList();
 
-  Future<List<Book>> getBooksList(int id);
+  Future<List<Book>> getBooksList(String id);
+
+  Future<void> addCollection(
+      String collectionName, int collectionSize, String imagePath);
+
+  Future<void> addBookList(String id, List<Book> bookList);
 }

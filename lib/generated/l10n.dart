@@ -44,6 +44,186 @@ class S {
       args: [],
     );
   }
+
+  /// `Generic Error`
+  String get genericErrorMessage {
+    return Intl.message(
+      'Generic Error',
+      name: 'genericErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try Again`
+  String get tryAgainButtonLabel {
+    return Intl.message(
+      'Try Again',
+      name: 'tryAgainButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Looks like there's no internet , \n Try to connect into internet ;)`
+  String get noInternetMessage {
+    return Intl.message(
+      'Looks like there\'s no internet , \n Try to connect into internet ;)',
+      name: 'noInternetMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty Field`
+  String get emptyFieldError {
+    return Intl.message(
+      'Empty Field',
+      name: 'emptyFieldError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid Field`
+  String get invalidFieldError {
+    return Intl.message(
+      'Invalid Field',
+      name: 'invalidFieldError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collection Name`
+  String get nameLabel {
+    return Intl.message(
+      'Collection Name',
+      name: 'nameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a new Collection`
+  String get addNewCollectionTitle {
+    return Intl.message(
+      'Add a new Collection',
+      name: 'addNewCollectionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collection Size`
+  String get collectionSizeLabel {
+    return Intl.message(
+      'Collection Size',
+      name: 'collectionSizeLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success`
+  String get addedWithSuccessTitle {
+    return Intl.message(
+      'Success',
+      name: 'addedWithSuccessTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collection added with success`
+  String get addedWithSuccessText {
+    return Intl.message(
+      'Collection added with success',
+      name: 'addedWithSuccessText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok!`
+  String get addedWithSuccessButtonText {
+    return Intl.message(
+      'Ok!',
+      name: 'addedWithSuccessButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Comic Collection`
+  String get comicCollectionTitle {
+    return Intl.message(
+      'Comic Collection',
+      name: 'comicCollectionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collection already added`
+  String get comicAlreadyAddedTitle {
+    return Intl.message(
+      'Collection already added',
+      name: 'comicAlreadyAddedTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Collection with this name already added`
+  String get comicAlreadyAddedText {
+    return Intl.message(
+      'Collection with this name already added',
+      name: 'comicAlreadyAddedText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok!`
+  String get comicAlreadyAddedButtonText {
+    return Intl.message(
+      'Ok!',
+      name: 'comicAlreadyAddedButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get addNewCollectionButtonText {
+    return Intl.message(
+      'Save',
+      name: 'addNewCollectionButtonText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image from Galery`
+  String get imageFromLibraryText {
+    return Intl.message(
+      'Image from Galery',
+      name: 'imageFromLibraryText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image from Camera`
+  String get imageFromCameraText {
+    return Intl.message(
+      'Image from Camera',
+      name: 'imageFromCameraText',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

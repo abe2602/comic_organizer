@@ -1,3 +1,4 @@
+import 'package:comix_organizer/presentation/common/view_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,14 +11,17 @@ class AdaptiveScaffold extends AdaptiveStatelessWidget {
     Key key,
     this.title,
     this.backgroundColor,
-    this.onPressed,
+    this.scaffoldAction,
+    this.type = PageType.root,
   })  : assert(body != null),
+        assert(type != null),
         super(key: key);
 
   final String title;
   final Widget body;
   final Color backgroundColor;
-  final Function onPressed;
+  final Function scaffoldAction;
+  final PageType type;
 
   @override
   Widget buildCupertinoWidget(BuildContext context) => CupertinoPageScaffold(
@@ -26,9 +30,9 @@ class AdaptiveScaffold extends AdaptiveStatelessWidget {
             title,
             maxLines: 1,
           ),
-          trailing: onPressed != null
+          trailing: scaffoldAction != null
               ? CupertinoButton(
-                  onPressed: onPressed,
+                  onPressed: scaffoldAction,
                   padding: EdgeInsets.zero,
                   child: Text('+'),
                 )
@@ -45,13 +49,18 @@ class AdaptiveScaffold extends AdaptiveStatelessWidget {
             title,
             maxLines: 1,
           ),
+          leading: type == PageType.root
+              ? null
+              : type == PageType.modal
+                  ? const CloseButton()
+                  : const BackButton(),
         ),
         body: body,
         backgroundColor: backgroundColor,
-        floatingActionButton: onPressed != null
+        floatingActionButton: scaffoldAction != null
             ? FloatingActionButton(
                 backgroundColor: Colors.red,
-                onPressed: onPressed,
+                onPressed: scaffoldAction,
                 child: Text('+'),
               )
             : null,

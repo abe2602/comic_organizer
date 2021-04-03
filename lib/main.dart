@@ -1,9 +1,12 @@
+import 'package:comix_organizer/data/cache/models/book_cm.dart';
+import 'package:comix_organizer/data/cache/models/collection_cm.dart';
 import 'package:comix_organizer/presentation/collection/collection_page.dart';
 import 'package:comix_organizer/presentation/collection_list/collection_list_page.dart';
 import 'package:comix_organizer/presentation/common/adaptive_app.dart';
 import 'package:comix_organizer/presentation/common/comic_organizer_general_provider.dart';
 import 'package:comix_organizer/presentation/new_collection/add_collection_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +18,16 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  Hive.init((await getApplicationDocumentsDirectory()).path);
+  Hive
+    ..init(
+      (await getApplicationDocumentsDirectory()).path,
+    )
+    ..registerAdapter(
+      BookCMAdapter(),
+    )
+    ..registerAdapter(
+      CollectionCMAdapter(),
+    );
 
   runApp(
     ComicOrganizerGeneralProvider(
@@ -34,6 +46,9 @@ class MainWidgetState extends State<MainWidget> {
   Widget build(BuildContext context) => AdaptiveApp(
         localizationsDelegates: const [
           S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
         primaryColor: Colors.red,

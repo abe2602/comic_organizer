@@ -21,6 +21,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "appName" : MessageLookupByLibrary.simpleMessage("")
+    "addNewCollectionButtonText" : MessageLookupByLibrary.simpleMessage("Salvar"),
+    "addedWithSuccessButtonText" : MessageLookupByLibrary.simpleMessage("Ok!"),
+    "addedWithSuccessText" : MessageLookupByLibrary.simpleMessage("Coleção adicionada com sucess"),
+    "addedWithSuccessTitle" : MessageLookupByLibrary.simpleMessage("Sucesso"),
+    "appName" : MessageLookupByLibrary.simpleMessage(""),
+    "collectionSizeLabel" : MessageLookupByLibrary.simpleMessage("Tamanho da Coleção"),
+    "comicAlreadyAddedButtonText" : MessageLookupByLibrary.simpleMessage("Ok!"),
+    "comicAlreadyAddedText" : MessageLookupByLibrary.simpleMessage("Uma coleção com esse nome já foi adicionada"),
+    "comicAlreadyAddedTitle" : MessageLookupByLibrary.simpleMessage("Coleção já Cadastrada"),
+    "comicCollectionTitle" : MessageLookupByLibrary.simpleMessage("Coleção de gibis"),
+    "emptyFieldError" : MessageLookupByLibrary.simpleMessage("Campo Vazio"),
+    "genericErrorMessage" : MessageLookupByLibrary.simpleMessage("Erro genérico"),
+    "imageFromCameraText" : MessageLookupByLibrary.simpleMessage("Imagem da Camera"),
+    "imageFromLibraryText" : MessageLookupByLibrary.simpleMessage("Imagem da Galeria"),
+    "invalidFieldError" : MessageLookupByLibrary.simpleMessage("Formato Invalido"),
+    "nameLabel" : MessageLookupByLibrary.simpleMessage("Nome da Coleção"),
+    "noInternetMessage" : MessageLookupByLibrary.simpleMessage("Parece que você está sem internet! , \n Tente conectar-se em alguma rede! ;)"),
+    "tryAgainButtonLabel" : MessageLookupByLibrary.simpleMessage("Tente Novamente")
   };
 }

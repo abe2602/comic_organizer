@@ -7,9 +7,8 @@ part 'collection_cm.g.dart';
 class CollectionCM {
   const CollectionCM({
     @required this.name,
-    @required this.imageUrl,
-  })  : assert(name != null),
-        assert(imageUrl != null);
+    this.imageUrl,
+  })  : assert(name != null);
 
   @HiveField(0)
   final String name;

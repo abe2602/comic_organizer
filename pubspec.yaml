@@ -23,10 +23,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   domain:
     path: domain
 
-  intl: ^0.16.0
+  intl: ^0.17.0
   provider: ^4.0.1
   rxdart: ^0.23.1
   hive: 1.4.1+1
@@ -40,6 +42,7 @@ dependencies:
   pie_chart: ^3.1.1
   grafpix: ^1.2.8
   random_color: ^1.0.5
+  image_picker: ^0.6.6+5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,6 +51,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^1.7.2
+  json_serializable: ^3.2.3
+  hive_generator: 0.7.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

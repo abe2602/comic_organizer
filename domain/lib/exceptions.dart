@@ -6,9 +6,7 @@ class GenericException implements ComicOrganizerException {}
 
 class EmptyCachedListException implements ComicOrganizerException {}
 
-class NameAlreadyAddedException implements ComicOrganizerException {}
-
-class CachedMovieDetailNotFoundException implements ComicOrganizerException {}
+class CollectionAlreadyAddedException implements ComicOrganizerException {}
 
 class UnexpectedException implements ComicOrganizerException {}
 
