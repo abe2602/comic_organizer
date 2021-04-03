@@ -1,6 +1,6 @@
 import 'package:comix_organizer/presentation/common/input_status_vm.dart';
 import 'package:comix_organizer/presentation/common/subscription_utils.dart';
-import 'package:comix_organizer/presentation/new_collection/add_collection_models.dart';
+import 'package:comix_organizer/presentation/add_collection/add_collection_models.dart';
 import 'package:domain/exceptions.dart';
 import 'package:domain/use_case/add_collection_uc.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +20,13 @@ class AddCollectionBloc with SubscriptionBag {
         )
         .addTo(subscriptionsBag);
 
+    _onCollectionSizeFocusLostSubject
+        .listen(
+          (_) => _buildCollectionSizeValidationStream(
+              _collectionSizeInputStatusSubject),
+        )
+        .addTo(subscriptionsBag);
+
     _onAddCollectionSubject
         .flatMap(
           (_) => Future.wait(
@@ -34,7 +41,7 @@ class AddCollectionBloc with SubscriptionBag {
         .flatMap(
           (_) => _addCollection(),
         )
-        .listen((event) {})
+        .listen((_) {})
         .addTo(subscriptionsBag);
   }
 
@@ -116,14 +123,13 @@ class AddCollectionBloc with SubscriptionBag {
 
       _onNewActionSubject.sink.add(Success());
     } catch (error) {
-      if(error is CollectionAlreadyAddedException) {
+      if (error is CollectionAlreadyAddedException) {
         _onNewActionSubject.sink.add(CollectionAlreadyAddedError());
       } else {
         _onNewActionSubject.sink.add(GenericError());
       }
     }
   }
-
 
   void dispose() {
     _onNewActionSubject.close();

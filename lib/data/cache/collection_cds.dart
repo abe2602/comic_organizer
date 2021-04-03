@@ -66,6 +66,25 @@ class CollectionCDS {
         },
       );
 
+  Future<void> removeCollection(String collectionName) =>
+      _openCollectionListBox().then(
+        (box) {
+          final List<CollectionCM> collectionList =
+              box.get(_collectionListBoxKey)?.cast<CollectionCM>() ?? [];
+
+          final collection = collectionList
+              .where((element) => element.name == collectionName)
+              .toList()
+              .first;
+
+          collectionList.remove(collection);
+
+          collectionListDataObservableSink.add(null);
+
+          return box.put(_collectionListBoxKey, collectionList);
+        },
+      );
+
   Future<void> addBookList(String collectionName, List<BookCM> bookList) =>
       _openBookListBox().then(
         (box) => box.put(collectionName, bookList),

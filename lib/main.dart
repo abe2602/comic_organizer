@@ -4,7 +4,7 @@ import 'package:comix_organizer/presentation/collection/collection_page.dart';
 import 'package:comix_organizer/presentation/collection_list/collection_list_page.dart';
 import 'package:comix_organizer/presentation/common/adaptive_app.dart';
 import 'package:comix_organizer/presentation/common/comic_organizer_general_provider.dart';
-import 'package:comix_organizer/presentation/new_collection/add_collection_page.dart';
+import 'package:comix_organizer/presentation/add_collection/add_collection_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';

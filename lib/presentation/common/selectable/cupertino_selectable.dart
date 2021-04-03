@@ -4,11 +4,16 @@ import 'package:flutter/widgets.dart';
 /// Makes the child widget selectable and gives it the visual feedback of
 /// the selection.
 class CupertinoSelectable extends StatefulWidget {
-  const CupertinoSelectable({@required this.child, Key key, this.onTap})
-      : assert(child != null),
+  const CupertinoSelectable({
+    @required this.child,
+    Key key,
+    this.onTap,
+    this.onLongPress,
+  })  : assert(child != null),
         super(key: key);
 
   final GestureTapCallback onTap;
+  final GestureTapCallback onLongPress;
   final Widget child;
 
   @override
@@ -20,21 +25,22 @@ class _CupertinoSelectableState extends State<CupertinoSelectable> {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    behavior: HitTestBehavior.opaque,
-    onTap: widget.onTap,
-    onTapDown: (_) => setState(() {
-      _isSelected = true;
-    }),
-    onTapUp: (_) => setState(() {
-      _isSelected = false;
-    }),
-    onTapCancel: () => setState(() {
-      _isSelected = false;
-    }),
-    child: Container(
-      color:
-      _isSelected ? Theme.of(context).splashColor : Colors.transparent,
-      child: widget.child,
-    ),
-  );
+        behavior: HitTestBehavior.opaque,
+        onLongPress: widget.onLongPress,
+        onTap: widget.onTap,
+        onTapDown: (_) => setState(() {
+          _isSelected = true;
+        }),
+        onTapUp: (_) => setState(() {
+          _isSelected = false;
+        }),
+        onTapCancel: () => setState(() {
+          _isSelected = false;
+        }),
+        child: Container(
+          color:
+              _isSelected ? Theme.of(context).splashColor : Colors.transparent,
+          child: widget.child,
+        ),
+      );
 }

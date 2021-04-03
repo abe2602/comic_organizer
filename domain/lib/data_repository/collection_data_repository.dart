@@ -9,5 +9,8 @@ abstract class CollectionDataRepository {
   Future<void> addCollection(
       String collectionName, int collectionSize, String imagePath);
 
+  Future<void> deleteCollection(String collectionName);
+
   Future<void> addBookList(String id, List<Book> bookList);
+
 }

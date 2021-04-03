@@ -5,13 +5,14 @@ import 'package:comix_organizer/presentation/common/action_handler.dart';
 import 'package:comix_organizer/presentation/common/adaptive_filled_button.dart';
 import 'package:comix_organizer/presentation/common/adaptive_scaffold.dart';
 import 'package:comix_organizer/presentation/common/form_text_field.dart';
-import 'package:comix_organizer/presentation/new_collection/add_collection_bloc.dart';
-import 'package:comix_organizer/presentation/new_collection/add_collection_models.dart';
+import 'package:comix_organizer/presentation/add_collection/add_collection_bloc.dart';
+import 'package:comix_organizer/presentation/add_collection/add_collection_models.dart';
 import 'package:domain/use_case/add_collection_uc.dart';
 import 'package:domain/use_case/validate_empty_text_uc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:comix_organizer/presentation/common/view_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -47,11 +48,13 @@ class _AddCollectionPageState extends State<AddCollectionPage> {
 
   @override
   void didChangeDependencies() {
-    _nameFocusNode
-        .addFocusLostListener(() => widget.bloc.onNameFocusLostSink.add(null));
+    _nameFocusNode.addFocusLostListener(
+      () => widget.bloc.onNameFocusLostSink.add(null),
+    );
 
     _collectionSizeFocusNode.addFocusLostListener(
-        () => widget.bloc.onCollectionSizeFocusLostSink.add(null));
+      () => widget.bloc.onCollectionSizeFocusLostSink.add(null),
+    );
 
     super.didChangeDependencies();
   }
@@ -116,6 +119,7 @@ class _AddCollectionPageState extends State<AddCollectionPage> {
                       labelText: S.of(context).collectionSizeLabel,
                       keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.done,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       onChanged:
                           widget.bloc.onCollectionSizeValueChangedSink.add,
                       onEditingComplete: () =>

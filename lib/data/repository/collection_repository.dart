@@ -57,4 +57,8 @@ class CollectionRepository implements CollectionDataRepository {
         id,
         bookList.toCM(),
       );
+
+  @override
+  Future<void> deleteCollection(String collectionName) =>
+      collectionCDS.removeCollection(collectionName);
 }

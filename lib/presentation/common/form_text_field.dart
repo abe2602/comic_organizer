@@ -6,21 +6,22 @@ import 'package:flutter/widgets.dart';
 import 'input_status_vm.dart';
 
 class FormTextField extends StatelessWidget {
-  const FormTextField(
-      {@required this.statusStream,
-      @required this.labelText,
-      Key key,
-      this.textEditingController,
-      this.focusNode,
-      this.emptyErrorMessage,
-      this.invalidErrorMessage,
-      this.keyboardType,
-      this.textInputAction,
-      this.onChanged,
-      this.onEditingComplete,
-      this.obscureText = false,
-      this.initialValue})
-      : assert(statusStream != null),
+  const FormTextField({
+    @required this.statusStream,
+    @required this.labelText,
+    Key key,
+    this.textEditingController,
+    this.focusNode,
+    this.emptyErrorMessage,
+    this.invalidErrorMessage,
+    this.keyboardType,
+    this.textInputAction,
+    this.onChanged,
+    this.onEditingComplete,
+    this.obscureText = false,
+    this.initialValue,
+    this.inputFormatters,
+  })  : assert(statusStream != null),
         assert(labelText != null),
         assert(
             (initialValue != null && textEditingController != null) ||
@@ -42,6 +43,7 @@ class FormTextField extends StatelessWidget {
   final VoidCallback onEditingComplete; //O que fazer quando acabar de editar
   final bool obscureText;
   final String initialValue; //valor inicial, se for null, é ""
+  final List<TextInputFormatter> inputFormatters;
 
   ///StreamBuilder ouve a stream que foi declarada no bloc. A partir dela,
   ///sabemos qual é o estado atual do inputText (undefined, invalid, empty ou
@@ -95,9 +97,11 @@ class FormTextField extends StatelessWidget {
               cursorColor: Colors.black87,
               keyboardType: keyboardType,
               textInputAction: textInputAction,
+              inputFormatters: inputFormatters,
               onEditingComplete: onEditingComplete,
               onChanged: onChanged,
               obscureText: obscureText,
+              enableInteractiveSelection: false,
             ),
           );
         },

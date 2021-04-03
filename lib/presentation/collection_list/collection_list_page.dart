@@ -8,6 +8,7 @@ import 'package:comix_organizer/presentation/common/async_snapshot_response_view
 import 'package:comix_organizer/presentation/common/selectable/adaptive_selectable.dart';
 import 'package:domain/model/collection.dart';
 import 'package:domain/use_case/get_collection_list_uc.dart';
+import 'package:domain/use_case/remove_collection_uc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,17 +19,19 @@ class CollectionListPage extends StatelessWidget {
     @required this.bloc,
   }) : assert(bloc != null);
 
-  static Widget create() => ProxyProvider2<GetCollectionListUC,
-          PublishSubject<void>, CollectionListBloc>(
+  static Widget create() => ProxyProvider3<GetCollectionListUC,
+          DeleteCollectionUC, PublishSubject<void>, CollectionListBloc>(
         update: (
           _,
           getCollectionListUC,
+          deleteCollectionUC,
           collectionListDataObservable,
           currentBloc,
         ) =>
             currentBloc ??
             CollectionListBloc(
               getCollectionListUC: getCollectionListUC,
+              deleteCollectionUC: deleteCollectionUC,
               collectionListDataObservable: collectionListDataObservable,
             ),
         child: Consumer<CollectionListBloc>(
@@ -77,6 +80,10 @@ class CollectionListPage extends StatelessWidget {
               itemCount: success.collectionList.length,
               itemBuilder: (_, index) => _CollectionCard(
                 collection: success.collectionList[index],
+                deleteCollection: () {
+                  bloc.deleteCollectionSink
+                      .add(success.collectionList[index].collectionName);
+                },
               ),
             ),
             errorWidgetBuilder: (error) => Text('Erro'),
@@ -88,14 +95,18 @@ class CollectionListPage extends StatelessWidget {
 class _CollectionCard extends StatelessWidget {
   const _CollectionCard({
     @required this.collection,
-  }) : assert(collection != null);
+    @required this.deleteCollection,
+  })  : assert(collection != null),
+        assert(deleteCollection != null);
 
   final Collection collection;
+  final Function deleteCollection;
 
   @override
   Widget build(BuildContext context) => Card(
         elevation: 2,
         child: AdaptiveSelectable(
+          onLongPress: deleteCollection,
           onTap: () {
             Navigator.pushNamed(
               context,
